@@ -1,0 +1,74 @@
+//----------------Operation system----------------------
+OS is a programme, provide interface for interacting with computer
+DO:
+    Runs programs
+    Manages resources
+    Handles in/out
+    Keeps things safe (đảm bảo hoạt động trơn tru)
+
+    Process: is a program that is curently running on computer. (Cooking the recipe)
+    # comparing with Program (Recipe)
+
+    Process will get resources to use, and each process is isolate.
+    --> (such as Chrome, Spotify, ... each of it is process)
+    
+    In memory- each process has different mem:
+    Stack: store variables when coding
+    Heap: dev manages this memory space
+    Data: constant, global
+    Code: store code and text
+
+    Priority: when an app is running, it would be prioritized than the others.
+
+    Thread- each thread in on a process has the same mem: is a single task happening inside a process.
+    One proccess can have many threads running in parallel. Having many threads could
+    make the process works more quickly because there is no waiting/ queue
+
+    Click icon -> OS loads it (copies program from disk into RAM) -> Process starts -> Threads spin up
+
+//----------------------Networking------------------------
+Network:
+IP: is a virtual address of your devices
+Package: is a package of data/ divided from a message
+Client >< Server (and other models such as B2B)
+Typical port
+Packet: 
+    header: protocal, address of sender, address of reciever
+    data: 
+
+Firewall (at router or at your computer): 
+//----------------------HTTP. DNS. TCP. UDP--------------------
+OSI (7), TCP/IP (5)
+SSH: connect to server remotely
+FTP: file transportation
+HTTP: for web browser
+
+HTTP(S: sercure): run based on TCP (HTTP 3 gradually move to UDP)
+    HTTPS will encript the data (just end-to-end) - use TSL handshakes to transfer from HTTP to HTTPS
+
+DNS (Domain Name System): is a DNS server (asking for the real IP)
+Read an hosting name: nab.com.au = 104.18.32.7
+    .au: top/root level Domain
+    .com: second level Domain
+    .nab: name 
+    .www: sub Domain
+
+-> DNS -> IP -> search the root server (au) -> continous search -> automatically store to cache for 
+the next connect more quickly.
+
+TCP (Transmission Control Protocol):
+    handshakes - make sure the server is available (three-way handshakes)
+    right order:
+        tracking - bên nhận sẽ xác nhận đã nhận tới đâu rồi
+        checksum - check the overall file if missing/ cracked - re-send automatically
+        chia tay 4 bước - nếu 4 bước nhận không ok thì nó sẽ ngắt kết nối
+    flow control
+    realise nghẽn and handles it
+
+UDP (User  Datagram Protocol):
+    light
+    no handshakes
+    no re-sending
+    no tracking
+    no guarantee
+    just speed
