@@ -72,3 +72,5 @@ UDP (User  Datagram Protocol):
     no tracking
     no guarantee
     just speed
+
+    ???===JWT: Json Web Token
