@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        
+</head>
+
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <!-- Card Container -->
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h1 class="card-title text-center mb-4 text-primary">Exchange Converter</h1>
+
+                            <div class="form-row align-items-end">
+                                <!-- From Section -->
+                                <div class="col-12 mb-3">
+                                    <label class="font-weight-bold">From</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control form-control-lg" id="convertNum"
+                                            placeholder="0.00">
+                                        <div class="input-group-append">
+                                            <select class="custom-select" id="inputConcur">
+                                                <option value="AUD">AUD</option>
+                                                <option value="USD">USD</option>
+                                                <option value="VND">VND</option>
+                                                <option value="EUR">EUR</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Swap Icon (Chỉ để trang trí hoặc xử lý sau) -->
+                                <div class="col-12 text-center my-2">
+                                    <button type="button" id="btnSwitch" class="btn btn-outline-primary btn-sm px-5 p-2">
+                                        <img style="width: 1.2em;"
+                                            src="https://cdn-icons-png.flaticon.com/512/9053/9053198.png" alt="swap">
+                                    </button>
+                                </div>
+
+                                <!-- To Section -->
+                                <div class="col-12 mb-4">
+                                    <label class="font-weight-bold">To</label>
+                                    <div class="input-group">
+                                        <input type="text" disabled class="form-control form-control-lg bg-white" id="resultNum"
+                                            placeholder="Result" readonly>
+                                        <div class="input-group-append">
+                                            <select class="custom-select" id="resultConcur">
+                                                <option value="VND">VND</option>
+                                                <option value="USD">USD</option>
+                                                <option value="AUD">AUD</option>
+                                                <option value="EUR">EUR</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Action Button -->
+                            <button type="button" id="btnConvert" class="form-control rounded-5 btn btn-primary btn-lg btn-block shadow-sm">
+                                Convert
+                            </button>
+
+                    </div>
+                </div>
+                <p class="text-center text-muted mt-3 small">© 2026 Currency Converter by Nhã Nhã.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
