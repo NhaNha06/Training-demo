@@ -21,18 +21,27 @@ function convertToRes (amount) {
 }
 
 function validInput () {
-
+    if (!parseFloat(inputNum.value) || parseFloat(inputNum.value) < 0) {
+        inputNum.value = "";
+        inputNum.placeholder = "Invalid input, please try positive number";
+        return false;
+    }
+    return true;
 }
 
 btnConvert.addEventListener('click', function() {
-    let amount = parseFloat(inputNum.value);
-    let result = convertToRes(amount);
-    resNum.value = result.toFixed(2);
+     if (validInput()) {
+        let amount = parseFloat(inputNum.value);
+        let result = convertToRes(amount);
+        resNum.value = parseFloat(result).toLocaleString("en-US");
+     }
 });
 
 btnSwitch.addEventListener('click', function() {
-    const temp = inputOpt.value;
-    inputOpt.value = resultOpt.value;
-    resultOpt.value = temp;
-    btnConvert.click();
+    if (validInput()) {
+        const temp = inputOpt.value;
+        inputOpt.value = resultOpt.value;
+        resultOpt.value = temp;
+        btnConvert.click();
+    }
 });
