@@ -86,6 +86,9 @@ class Solution {
         return max;
 
     }
+
+
+    
 }
 // 1, 2, 4, 6
 // 1, 2, 8, 48
@@ -96,12 +99,7 @@ class Solution {
 public class Main {
     public static void main(String[] args) {
         Solution call = new Solution();
-        int[] nums = {1,2,4,6};
-        int[] res = call.productExceptSelf(nums);
-        for (int i : res)
-        System.out.print(i + " ");
-
-        // System.out.println(call.findMax(nums));
+      
     }
 
 }
