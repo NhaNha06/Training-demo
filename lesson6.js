@@ -70,7 +70,7 @@
     Non-functional Testing: chạy mượt chạy đẹp (load, security, usability, ...)
     Structural Testing: để đo hiệu suất trong code, tổ chức, refactoring code
     Re-testing & Regression testing: đảm bảo lỗi được sửa, tìm ra lỗi mới, quay lại
-     test những cái trước đó. (chỉ thường nước ngoài làm) Regression: đã có và không thay đổi
+    test những cái trước đó. (chỉ thường nước ngoài làm) Regression: đã có và không thay đổi
 
 === CI/CD: Continuous Integrating, Continuous Deployment: sau khi push lên git, tạo pull request thì 
     service CI/CD sẽ tự động chạy các loại test như system test, SIT (của bên QA thường là chạy thủ công),
