@@ -33,7 +33,7 @@
 
 ----- 7 quy tắc testing --------- do tổ chức ISTQB đưa ra
     1 - 7. Kiểm thử để ra lỗi và sửa (defects) - Không có sản phẩm nào là không có lỗi 
-    2. Không thể kiểm thử hết toàn bộ tất cả - test boundaries các thứ
+    2. Không thể kiểm thử hết toàn bộ tất cả - có kĩ thuật test mid-value, boundaries, out-of boundaries các thứ
     3. Testing sớm (static testing vô cùng quan trọng)
     4. Tập trung sửa lỗi những module tập trung lỗi quan trọng 
     5. Pesticide paradox - không được quá tập trung vào một nhóm test case (80 vấn đề/20 thời gian).
@@ -72,7 +72,10 @@
     Re-testing & Regression testing: đảm bảo lỗi được sửa, tìm ra lỗi mới, quay lại
      test những cái trước đó. (chỉ thường nước ngoài làm) Regression: đã có và không thay đổi
 
-=== CICD:  tự tìm hiểu
+=== CI/CD: Continuous Integrating, Continuous Deployment: sau khi push lên git, tạo pull request thì 
+    service CI/CD sẽ tự động chạy các loại test như system test, SIT (của bên QA thường là chạy thủ công),
+    sau đó tự deploy và merge vô branch chính nếu như pass test.
+    Tuy nhiên dev phải unit test đủ tốt và phải làm quen với services. 
 
 Reference:
     CTFL: cert chứng năng khả năng testing
