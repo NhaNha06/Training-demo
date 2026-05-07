@@ -54,4 +54,28 @@
 
 =======> Muốn automate một test case thì phải: xác định test case có automate được không ==>  viết script
 
+------ Nhớ những quaility mindset and collaboration
+====== Agile testing: test chia theo giai đoạn
+
+===== Pyramid test levels:
+                    Acceptance test: tùy project (cái có cái không)
+                System Integration Test (SIT):SIT team (connectivity testing with external assets)
+            System test: QA (dùng stack với mock cho access phía bên ngoài)
+        Component Test: developers
+    Unit test: developers
+
+
+==== Test types:
+    Functional Testing: xác minh rằng hệ thống cần gì
+    Non-functional Testing: chạy mượt chạy đẹp (load, security, usability, ...)
+    Structural Testing: để đo hiệu suất trong code, tổ chức, refactoring code
+    Re-testing & Regression testing: đảm bảo lỗi được sửa, tìm ra lỗi mới, quay lại
+     test những cái trước đó. (chỉ thường nước ngoài làm) Regression: đã có và không thay đổi
+
+=== CICD:  tự tìm hiểu
+
+Reference:
+    CTFL: cert chứng năng khả năng testing
+    nab.udemy.com
+
  */
