@@ -27,14 +27,35 @@ public class Main {
         return k;
     }
 
-    
+    public static int strStr (String haystack, String needle) {
+        int result = 0;
+        
+        if (!haystack.contains(needle) || needle.length() > haystack.length())
+            return -1;
+
+        for (int i = 0; i < haystack.length(); i++) {
+            if (haystack.charAt(i) == needle.charAt(0)) {
+                String comp = haystack.substring(i, haystack.length());
+                if (comp.startsWith(needle)) {
+                    result = i;
+                    break;
+                }
+            }
+        }
+
+        return result;
+    }
 
     public static void main(String[] args) {
-        int[] nums = {1,1,2,4,7,8,5,4,1,4,3};
-        int k = removeElement(nums, 4);
-        System.out.println(k);
-        for (int i : nums) 
-            System.out.print(i + " ");
+        // int[] nums = {1,1,2,4,7,8,5,4,1,4,3};
+        // int k = removeElement(nums, 4);
+        // System.out.println(k);
+        // for (int i : nums) 
+        //     System.out.print(i + " ");
+        String haysString = "sadbutsad", needlString = "sad";
+        int res = strStr(haysString, needlString);
+        System.out.println(res);
+
     }
 }
 //[0,0,1,1,1,2,2,3,3,4] input
