@@ -1,9 +1,3 @@
-package leetcode;
-
-public class first {
-
-}
-
 class Solution {
     /*
      * Definition for singly-linked list.
