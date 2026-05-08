@@ -1,22 +1,15 @@
 public class Main {
     public static int removeDuplicates(int[] nums) {
-        //create new array, result array [0] = nums[0]
-        int[] result = new int[nums.length];
-        result[0] = nums[0];
-
-        int k = 0, cnt = 0;
+        int k = 1;
+        //number of element current
 
         for (int i = 1; i < nums.length; i++) {
-            //if nums[i] (from 1) == result[count] (from 0) ->i++ 
-            if (nums[i] == result[cnt]) {
-                
-            }
-            else {
-                result[++cnt] = nums[i];
+            //if nums[i] (from 1) == result[k - 1] (from 0) ->i++ else replace it in array
+            if (nums[i] != nums[k - 1]) {
+                nums[k] = nums[i];
                 k++;
-            }
-            //else result[++cnt] = nums[i], k++ respectively
-            
+            } 
+                
         }
         nums = result;
 
