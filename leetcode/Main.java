@@ -46,15 +46,35 @@ public class Main {
         return result;
     }
 
+    public static boolean hasDuplicate (int[] arr) {
+        //require O(n), just plain array, no map, no set or object-as-hash
+        int n = arr.length;
+
+        int[] markArr = new int[101];
+        for (int i = 0; i <= 100; i++) {
+            markArr[i] = -1;
+        }
+
+        //element is 0 <= x <= 100 
+        for (int i = 0; i < n; i++) {
+            markArr[arr[i]]++;
+            if (markArr[arr[i]] > 0)
+                return true;
+        }
+
+        return false;
+    }
+
     public static void main(String[] args) {
-        // int[] nums = {1,1,2,4,7,8,5,4,1,4,3};
+        int[] nums = {1,100,2,4,7,8,5,40,64,38};
+        System.out.println(hasDuplicate(nums));
         // int k = removeElement(nums, 4);
         // System.out.println(k);
         // for (int i : nums) 
         //     System.out.print(i + " ");
-        String haysString = "sadbutsad", needlString = "sad";
-        int res = strStr(haysString, needlString);
-        System.out.println(res);
+        // String haysString = "sadbutsad", needlString = "sad";
+        // int res = strStr(haysString, needlString);
+        // System.out.println(res);
 
     }
 }
