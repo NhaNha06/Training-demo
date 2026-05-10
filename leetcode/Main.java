@@ -1,15 +1,15 @@
 public class Main {
     public static int removeDuplicates(int[] nums) {
         int k = 1;
-        //number of element current
+        // number of element current
 
         for (int i = 1; i < nums.length; i++) {
-            //if nums[i] (from 1) == result[k - 1] (from 0) ->i++ else replace it in array
+            // if nums[i] (from 1) == result[k - 1] (from 0) ->i++ else replace it in array
             if (nums[i] != nums[k - 1]) {
                 nums[k] = nums[i];
                 k++;
-            } 
-                
+            }
+
         }
 
         return k;
@@ -22,14 +22,14 @@ public class Main {
             if (nums[i] != val) {
                 nums[k++] = nums[i];
             }
-            
+
         }
         return k;
     }
 
-    public static int strStr (String haystack, String needle) {
+    public static int strStr(String haystack, String needle) {
         int result = 0;
-        
+
         if (!haystack.contains(needle) || needle.length() > haystack.length())
             return -1;
 
@@ -46,8 +46,8 @@ public class Main {
         return result;
     }
 
-    public static boolean hasDuplicate (int[] arr) {
-        //require O(n), just plain array, no map, no set or object-as-hash
+    public static boolean hasDuplicate(int[] arr) {
+        // require O(n), just plain array, no map, no set or object-as-hash
         int n = arr.length;
 
         int[] markArr = new int[101];
@@ -55,7 +55,7 @@ public class Main {
             markArr[i] = -1;
         }
 
-        //element is 0 <= x <= 100 
+        // element is 0 <= x <= 100
         for (int i = 0; i < n; i++) {
             markArr[arr[i]]++;
             if (markArr[arr[i]] > 0)
@@ -65,18 +65,111 @@ public class Main {
         return false;
     }
 
+    public static int searchInsert(int[] nums, int target) {
+        // use binary search -> if cannot find return index of right - 1
+        int left = 0, right = nums.length - 1;
+
+        while (left <= right) {
+            int mid = (int) Math.floor((left + right) / 2);
+
+            if (nums[mid] == target)
+                return mid;
+            if (target > nums[mid])
+                left = mid + 1;
+            else
+                right = mid - 1;
+        }
+
+        return left;
+
+    }
+
+    public static int lengthOfLastWord(String s) {
+        // String[] tmpString = s.trim().split("\\s+");
+        // return tmpString[tmpString.length - 1].length();
+
+        s = s.trim();
+        int n = s.length();
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if (s.charAt(i) != ' ')
+                count++;
+            else
+                count = 0;
+        }
+        return count;
+    }
+
+    public static int[] plusOne(int[] digits) {
+        int n = digits.length;
+        int[] result = new int[n + 1];
+
+        //in case of 1 digits from 0 - 9
+        if (n == 1) {
+            if (digits[0] == 9) {
+                result[0] = 1;
+                result[1] = 0;
+                return result;
+            }
+            else {
+                digits[0] += 1;
+                return digits;
+            }
+        }
+
+        //in case of many digit
+        if (digits[n - 1] == 9) {
+            for (int i = n - 1; i >= 0; i--) {
+                if (digits[i] == 9) {
+                    digits[i] = 0;
+                }
+                else {
+                    digits[i] += 1;
+                    break;
+                }
+            
+            }
+
+        }
+        else {
+            digits[n - 1] += 1;
+        }
+
+        //in case of plus 999 or 99999 etc.
+        if (digits[0] == 0) {
+            result[0] = 1;
+            for (int i = 0; i < n; i++) 
+                result[i+1] = digits[i];
+        }
+        else {
+            int[] res = new int[n];
+            for (int i = 0; i < n; i++) 
+                res[i] = digits[i];
+            return res;
+        }
+
+        return result;
+    }
+
     public static void main(String[] args) {
-        int[] nums = {1,100,2,4,7,8,5,40,64,38};
-        System.out.println(hasDuplicate(nums));
+        // int[] nums = {1,3,5,6};
+        // System.out.println(searchInsert(nums, 7));
+        // System.out.println(hasDuplicate(nums));
         // int k = removeElement(nums, 4);
         // System.out.println(k);
-        // for (int i : nums) 
-        //     System.out.print(i + " ");
+        // for (int i : nums)
+        // System.out.print(i + " ");
         // String haysString = "sadbutsad", needlString = "sad";
         // int res = strStr(haysString, needlString);
         // System.out.println(res);
+        // String s = "   fly me   to   the moon  ";
+        // System.out.println(lengthOfLastWord(s));
+        int[] digits = {1,2,3};
+        int[] res = plusOne(digits);
+        for (int i : res)
+            System.out.print(i + " ");
 
     }
 }
-//[0,0,1,1,1,2,2,3,3,4] input
-//[1,1,2]
+// [0,0,1,1,1,2,2,3,3,4] input
+// [1,1,2]
