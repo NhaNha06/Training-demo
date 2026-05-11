@@ -148,6 +148,8 @@ public class Main {
         return result;
     }
 
+       
+
     //34. Leet code (kiem ten bài)
     public static int[] findRange(int[] arr, int target, int idx) {
         int[] res = new int[2];
@@ -202,22 +204,26 @@ public class Main {
         return total <= 8;
     }
 
-    // public static int minEatingSpeed(int[] piles, int hour) {
-    //     int left = 0, right = Math.max(piles);
-
-    //     while (left <= right) {
-    //         int mid = (left + right) / 2;
-    //         if (canFinish(mid, piles, hour))
-    //             right = mid;
-    //         else
-    //             left = mid + 1;
+    public static int minEatingSpeed(int[] piles, int hour) {
+        int max = piles[0];
+        for (int i : piles) {
+            if (i > max)
+                max = i;
+        }
+        
+        int left = 0, right = max;
+        while (left < right) {
+            int mid = (left + right) / 2;
+            if (canFinish(mid, piles, hour))
+                right = mid;
+            else
+                left = mid + 1;
           
-    //     }
-    //     return left;
-    // }
+        }
+        return left;
+    }
 
     public static void merge (int[] first, int[] second) {
-        int[] result = new int[first.length + second.length];
 
         //VIET HAM MERGE SAU DO LAM FIND THE MEDIAN
         //vd bai find the median of sorted array
@@ -226,9 +232,9 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        int[] nums1 = {1,3};
-        int[] nums2 = {1,2,3};
+   
     }
 }
 // [0,0,1,1,1,2,2,3,3,4] input
 // [1,1,2]
+
