@@ -87,19 +87,8 @@ class Solution {
 
     }
 
-
+  
     
 }
-// 1, 2, 4, 6
-// 1, 2, 8, 48
-// 48, 48, 24, 6
-// res[1] = pre[0] + suf[2]
-// res[2] = pre[]
 
-public class Main {
-    public static void main(String[] args) {
-        Solution call = new Solution();
-      
-    }
 
-}

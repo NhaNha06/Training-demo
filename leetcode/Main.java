@@ -1,3 +1,4 @@
+
 public class Main {
     public static int removeDuplicates(int[] nums) {
         int k = 1;
@@ -104,46 +105,42 @@ public class Main {
         int n = digits.length;
         int[] result = new int[n + 1];
 
-        //in case of 1 digits from 0 - 9
+        // in case of 1 digits from 0 - 9
         if (n == 1) {
             if (digits[0] == 9) {
                 result[0] = 1;
                 result[1] = 0;
                 return result;
-            }
-            else {
+            } else {
                 digits[0] += 1;
                 return digits;
             }
         }
 
-        //in case of many digit
+        // in case of many digit
         if (digits[n - 1] == 9) {
             for (int i = n - 1; i >= 0; i--) {
                 if (digits[i] == 9) {
                     digits[i] = 0;
-                }
-                else {
+                } else {
                     digits[i] += 1;
                     break;
                 }
-            
+
             }
 
-        }
-        else {
+        } else {
             digits[n - 1] += 1;
         }
 
-        //in case of plus 999 or 99999 etc.
+        // in case of plus 999 or 99999 etc.
         if (digits[0] == 0) {
             result[0] = 1;
-            for (int i = 0; i < n; i++) 
-                result[i+1] = digits[i];
-        }
-        else {
+            for (int i = 0; i < n; i++)
+                result[i + 1] = digits[i];
+        } else {
             int[] res = new int[n];
-            for (int i = 0; i < n; i++) 
+            for (int i = 0; i < n; i++)
                 res[i] = digits[i];
             return res;
         }
@@ -151,24 +148,86 @@ public class Main {
         return result;
     }
 
-    public static void main(String[] args) {
-        // int[] nums = {1,3,5,6};
-        // System.out.println(searchInsert(nums, 7));
-        // System.out.println(hasDuplicate(nums));
-        // int k = removeElement(nums, 4);
-        // System.out.println(k);
-        // for (int i : nums)
-        // System.out.print(i + " ");
-        // String haysString = "sadbutsad", needlString = "sad";
-        // int res = strStr(haysString, needlString);
-        // System.out.println(res);
-        // String s = "   fly me   to   the moon  ";
-        // System.out.println(lengthOfLastWord(s));
-        int[] digits = {1,2,3};
-        int[] res = plusOne(digits);
-        for (int i : res)
-            System.out.print(i + " ");
+    //34. Leet code (kiem ten bài)
+    public static int[] findRange(int[] arr, int target, int idx) {
+        int[] res = new int[2];
+        int start = idx, end = idx;
+        // 1 2 3 5
 
+        for (int i = 0; i < idx; i++) {
+            if (arr[i] == target) {
+                start = i;
+                break;
+            }
+        }
+
+        for (int i = arr.length - 1; i > idx; i--) {
+            if (arr[i] == target) {
+                end = i;
+                break;
+            }
+        }
+
+        res[0] = start;
+        res[1] = end;
+        return res;
+
+    }
+
+    public static int[] searchRange(int[] arr, int target) {
+
+        int left = 0, right = arr.length - 1;
+        int[] res = { -1, -1 };
+
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (arr[mid] == target)
+                return findRange(arr, target, mid);
+            else if (arr[mid] < target)
+                right = mid - 1;
+            else
+                left = mid + 1;
+        }
+        return res;
+
+    }
+    
+    //875. Koko Eating Bananas
+
+    public static boolean canFinish(int speed, int[] piles, int hour) {
+        int total = 0;
+        for (int i : piles) {
+            total += Math.ceil(i / (speed * 1.0));
+        }
+        return total <= 8;
+    }
+
+    // public static int minEatingSpeed(int[] piles, int hour) {
+    //     int left = 0, right = Math.max(piles);
+
+    //     while (left <= right) {
+    //         int mid = (left + right) / 2;
+    //         if (canFinish(mid, piles, hour))
+    //             right = mid;
+    //         else
+    //             left = mid + 1;
+          
+    //     }
+    //     return left;
+    // }
+
+    public static void merge (int[] first, int[] second) {
+        int[] result = new int[first.length + second.length];
+
+        //VIET HAM MERGE SAU DO LAM FIND THE MEDIAN
+        //vd bai find the median of sorted array
+        
+
+    }
+
+    public static void main(String[] args) {
+        int[] nums1 = {1,3};
+        int[] nums2 = {1,2,3};
     }
 }
 // [0,0,1,1,1,2,2,3,3,4] input
