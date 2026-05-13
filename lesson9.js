@@ -14,8 +14,32 @@
         - Application: thường không gặp
         - Bug fixing: cho vấn đề (một đoạn code) và sửa lỗi
 
-    ???//Master Theorem: dùng để analyze độ phức tạp
+    ???//BTVN: Master Theorem: dùng để analyze độ phức tạp
 
+DATA STRUCTURE
+    === SET ===
+    Set of in-duplicated value in a set
+    Time complexity of all operation: O(1)
     
+    === HASH TABLE (MAP) ===
+    Key: Unit & Value 
+    Có thể hiểu là một array của các linked list (có key trước, dùng hash function để bỏ vào value)
+    Bucket: tên gọi chính xác cho từng value bên trong nó
+    Khi có collision mà xử lý kiểu linked-list nhất định rồi thì đống đó sẽ chuyển thành tree 
+    (đảm bảo độ phức tạp tối ưu)
+    
+    ???// BTVN: Leetcode 706: Design HashMap
+    
+ALGORITHM
+    === BINARY SEARCH ===
+    Nhanh hơn binary search O(log n) --> Interpolation Search (XỊN ZL O(log(log n)))
+
+    ???BTVN: tìm hiểu BFS (level-order) & DFS xem trong dạng khác ngoài tree
+
+    METHOD ĐỂ LUYỆN ALGORITHM:
+    SLIDING WINDOW:
+    TWO POINTER:
+
+    Giao bài theo tuần, coi study plan á
 
  */

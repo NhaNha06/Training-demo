@@ -1,3 +1,4 @@
+import java.util.HashSet;
 
 public class Main {
     public static int removeDuplicates(int[] nums) {
@@ -162,6 +163,8 @@ public class Main {
                 break;
             }
         }
+
+        
 
         for (int i = arr.length - 1; i > idx; i--) {
             if (arr[i] == target) {
