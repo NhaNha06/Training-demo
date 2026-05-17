@@ -1,4 +1,4 @@
-import java.util.HashSet;
+import java.util.Arrays;
 
 public class Main {
     public static int removeDuplicates(int[] nums) {
@@ -164,8 +164,6 @@ public class Main {
             }
         }
 
-        
-
         for (int i = arr.length - 1; i > idx; i--) {
             if (arr[i] == target) {
                 end = i;
@@ -234,8 +232,24 @@ public class Main {
 
     }
 
+    public static char findTheDifference(String s, String t) {
+        char[] arrS = s.toCharArray();
+        char[] arrT = t.toCharArray();
+
+        Arrays.sort(arrS);
+        Arrays.sort(arrT);
+
+        for (int i = 0; i < s.length(); i++) {
+            if (arrS[i] != arrT[i])
+                return arrT[i];
+        }
+
+        return arrT[t.length() - 1];
+    }
+
     public static void main(String[] args) {
-   
+        String s = "", t = "y";
+        System.out.println(findTheDifference(s, t));
     }
 }
 // [0,0,1,1,1,2,2,3,3,4] input
