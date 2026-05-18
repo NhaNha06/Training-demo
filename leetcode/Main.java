@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Stack;
 
 public class Main {
     public static int removeDuplicates(int[] nums) {
@@ -149,9 +150,7 @@ public class Main {
         return result;
     }
 
-       
-
-    //34. Leet code (kiem ten bài)
+    // 34. Leet code (kiem ten bài)
     public static int[] findRange(int[] arr, int target, int idx) {
         int[] res = new int[2];
         int start = idx, end = idx;
@@ -194,8 +193,8 @@ public class Main {
         return res;
 
     }
-    
-    //875. Koko Eating Bananas
+
+    // 875. Koko Eating Bananas
 
     public static boolean canFinish(int speed, int[] piles, int hour) {
         int total = 0;
@@ -211,7 +210,7 @@ public class Main {
             if (i > max)
                 max = i;
         }
-        
+
         int left = 0, right = max;
         while (left < right) {
             int mid = (left + right) / 2;
@@ -219,16 +218,15 @@ public class Main {
                 right = mid;
             else
                 left = mid + 1;
-          
+
         }
         return left;
     }
 
-    public static void merge (int[] first, int[] second) {
+    public static void merge(int[] first, int[] second) {
 
-        //VIET HAM MERGE SAU DO LAM FIND THE MEDIAN
-        //vd bai find the median of sorted array
-        
+        // VIET HAM MERGE SAU DO LAM FIND THE MEDIAN
+        // vd bai find the median of sorted array
 
     }
 
@@ -247,11 +245,28 @@ public class Main {
         return arrT[t.length() - 1];
     }
 
+    public static int minLength(String s) {
+        Stack<Character> stack = new Stack<>();
+
+        if (!s.contains("AB") && !s.contains("CD"))
+            return s.length();
+
+        for (char c : s.toCharArray()) {
+            if (!stack.isEmpty() && ((stack.peek() == 'A' && c == 'B') || (stack.peek() == 'C' && c == 'D')))
+                stack.pop();
+            else
+                stack.push(c);
+
+        }
+
+        return stack.size();
+
+    }
+
     public static void main(String[] args) {
-        String s = "", t = "y";
-        System.out.println(findTheDifference(s, t));
+        String s = "ABFCACDB";
+        System.out.println(minLength(s));
     }
 }
 // [0,0,1,1,1,2,2,3,3,4] input
 // [1,1,2]
-

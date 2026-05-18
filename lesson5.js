@@ -12,6 +12,7 @@
             == ARRAY: Là một danh sách/ khối (bộ nhớ) liền kề có thứ tự (được đánh số - index). Truy cập ngay lập tức và 
             trực tiếp được đến bất kì vị trí nào nếu có index.
                 Có Push. Pop (at the end) = O(1);
+                Random access- fixed in size- 0-indexed- varies in dimentions
 
             === LINKED-LIST - lịch sử trình duyệt, playlist
             Node: chứa thông tin
