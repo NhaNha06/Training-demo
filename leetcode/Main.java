@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Stack;
 
 public class Main {
@@ -316,50 +317,56 @@ public class Main {
         return count;
     }
 
-     public static int[] nextGreaterElement(int[] nums1, int[] nums2) {
-         //use binary search to find Int at nums2
+    public static int[] nextGreaterElement(int[] nums1, int[] nums2) {
         int[] result = new int[nums1.length];
         int cnt = 0;
 
+        //search vị trí tại nums2
         for (int i : nums1) {
             int idx = findInt(i, nums2);
-            System.out.println(idx);
-            //check if idx = nums.lenght - 1 or nums2[idx + 1] > nums2[idx] 
-            if (idx == nums2.length - 1) 
+
+            //if idx = nums2.length - 1 => add -1
+            if (idx == nums2.length - 1)
                 result[cnt++] = -1;
-            // -> add nums[idx + 1] to array
-            else if (nums2[idx + 1] > nums2[idx])
-                result[cnt++] = nums2[idx];
-            else
-                //else add -1 to result array
-                result[cnt++] = -1;
-                
+            //else if idx + 1 > idx -> add luôn idx + 1
+            else if (nums2[idx] < nums2[idx + 1])
+                result[cnt++] = nums2[idx + 1];
+            //else: tìm max của đoạn còn lại
+            else {
+                int max = idx;
+                for (int j = idx; j < nums2.length; j++) {
+                    if (nums2[j] > nums2[max])
+                        max = j;
+                }
+                //   if max = idx => add -1
+                if (max == idx)
+                    result[cnt++] = -1;
+                //   else add max
+                else 
+                    result[cnt++] = nums2[max];
+
+            }
+
         }
         return result;
 
     }
 
-    public static int findInt (int target, int[] nums) {
-        int left = 0, right = nums.length - 1;
-
-        while (left <= right) {
-            int mid = (left + right) / 2;
-            if (nums[mid] == target) 
-                return mid;
-            else if (nums[mid] < target)
-                right = mid - 1;
-            else
-                left = mid + 1;
+    public static int findInt(int target, int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == target)
+                return i;
         }
-
         return -1;
     }
 
+
     public static void main(String[] args) {
-       int[] nums1 = {4,1,2}, nums2 = {1,3,4,2};
-       int[] res = nextGreaterElement(nums1, nums2);
-       for (int i : res) 
-        System.out.println(i);
+        int[] nums1 = { 1, 3, 5, 2, 4 }, nums2 = { 6, 5, 4, 3, 2, 1, 7 };
+        int[] res = nextGreaterElement(nums1, nums2);
+        for (int i : res)
+            System.out.println(i);
+        
     }
 }
 // [0,0,1,1,1,2,2,3,3,4] input
