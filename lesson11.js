@@ -87,6 +87,7 @@
     *** Nên có một lớp Ở GIỮA, BAO LẠI bắt lỗi - để DEBUG - ERROR HANDLING STRATEGY
 ==== ASYNC/ AWAIT SINH RA KHÔNG THAY THẾ CHO PROMISES, NÓ CHỈ DỄ ĐỌC HƠN THUI CHỨ NHƯ NHAU
 ==== KHÔNG NÊN MIX CALLBACK VỚI PROMISES vì PROMISES SINH RA ĐỂ LÀM GỌN CALL BACK
+==== ĐỪNG LẠM DỤNG ASYNC AWAIT (với những cái dùng được luôn)
 */
     Promise(res => func(() => {
         ///xxxx dont do this

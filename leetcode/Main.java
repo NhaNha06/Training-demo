@@ -263,9 +263,103 @@ public class Main {
 
     }
 
+    public static boolean isMonotonic(int[] nums) {
+        // xét ptu 0 và cuối, rẽ nhánh
+        // increase: nếu 2 ptu liền kề trừ ra âm -> return false
+        // decrease: nếu 2 ptu liền kề trừ ra dương -> return false
+
+        if (nums[0] < nums[nums.length - 1]) {
+            for (int i = 1; i < nums.length - 1; i++) {
+                if (nums[i + 1] - nums[i] < 0)
+                    return false;
+            }
+        } else {
+            for (int i = 1; i < nums.length - 1; i++) {
+                if (nums[i + 1] - nums[i] > 0)
+                    return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static boolean isAnagram(String s, String t) {
+        // sort 2 string Array, return equal
+        if (s.length() != t.length())
+            return false;
+
+        char[] arrS = s.toCharArray();
+        char[] arrT = t.toCharArray();
+
+        Arrays.sort(arrS);
+        Arrays.sort(arrT);
+
+        for (int i = 0; i < arrS.length; i++) {
+            if (arrS[i] != arrT[i])
+                return false;
+        }
+
+        return true;
+    }
+
+    public static int minOperations(String[] logs) {
+        int count = 0;
+        for (String i : logs) {
+            if (i.equals("../")) {
+                if (count != 0)
+                    count--;
+            } else if (!i.equals("./"))
+                count++;
+            // System.out.println(i + "_" + count);
+        }
+
+        return count;
+    }
+
+     public static int[] nextGreaterElement(int[] nums1, int[] nums2) {
+         //use binary search to find Int at nums2
+        int[] result = new int[nums1.length];
+        int cnt = 0;
+
+        for (int i : nums1) {
+            int idx = findInt(i, nums2);
+            System.out.println(idx);
+            //check if idx = nums.lenght - 1 or nums2[idx + 1] > nums2[idx] 
+            if (idx == nums2.length - 1) 
+                result[cnt++] = -1;
+            // -> add nums[idx + 1] to array
+            else if (nums2[idx + 1] > nums2[idx])
+                result[cnt++] = nums2[idx];
+            else
+                //else add -1 to result array
+                result[cnt++] = -1;
+                
+        }
+        return result;
+
+    }
+
+    public static int findInt (int target, int[] nums) {
+        int left = 0, right = nums.length - 1;
+
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (nums[mid] == target) 
+                return mid;
+            else if (nums[mid] < target)
+                right = mid - 1;
+            else
+                left = mid + 1;
+        }
+
+        return -1;
+    }
+
     public static void main(String[] args) {
-        String s = "ABFCACDB";
-        System.out.println(minLength(s));
+       int[] nums1 = {4,1,2}, nums2 = {1,3,4,2};
+       int[] res = nextGreaterElement(nums1, nums2);
+       for (int i : res) 
+        System.out.println(i);
     }
 }
 // [0,0,1,1,1,2,2,3,3,4] input

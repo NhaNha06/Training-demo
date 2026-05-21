@@ -32,13 +32,12 @@
     của người dùng, xây dựng tính tin cậy của chất lượng phần mềm.
 
 ----- 7 quy tắc testing --------- do tổ chức ISTQB đưa ra
-    1 - 7. Kiểm thử để ra lỗi và sửa (defects) - Không có sản phẩm nào là không có lỗi 
+    1 - 7. Kiểm thử tìm được sự thể hiện của lỗi và sửa (defects) - Không có sản phẩm nào là không có lỗi (không thể chứng minh)
     2. Không thể kiểm thử hết toàn bộ tất cả - có kĩ thuật test mid-value, boundaries, out-of boundaries các thứ
     3. Testing sớm (static testing vô cùng quan trọng)
     4. Tập trung sửa lỗi những module tập trung lỗi quan trọng 
     5. Pesticide paradox - không được quá tập trung vào một nhóm test case (80 vấn đề/20 thời gian).
     6. Testing is context dependent- test cases phải phụ thuộc vào bối cảnh của hệ thống- phải chính xác (context).
-
 
 ---- Quaility assurance: left-shifting (dời qui trình, test sớm), right-shifting (production, deploy, nên khó)
 
@@ -76,6 +75,7 @@
     service CI/CD sẽ tự động chạy các loại test như system test, SIT (của bên QA thường là chạy thủ công),
     sau đó tự deploy và merge vô branch chính nếu như pass test.
     Tuy nhiên dev phải unit test đủ tốt và phải làm quen với services. 
+
 
 Reference:
     CTFL: cert chứng năng khả năng testing
